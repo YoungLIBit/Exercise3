@@ -44,6 +44,7 @@ $main-font-size:13px;
         width: 100%;
         text-align: center;
       }
+
       .sidebar__dashboard{
         @include sidebar;
 
@@ -82,6 +83,7 @@ $main-font-size:13px;
         background-color: $main-color-1;
       ;
       }
+
       @mixin sidebar-title{
         margin-left: 5px;
         margin-top: 10px;
@@ -98,11 +100,14 @@ $main-font-size:13px;
         justify-content: space-between;
         @include sidebar-ui-title(15px);
         white-space: nowrap;
-
+        padding: 5px;
+        border-radius: 5px;
       }
       .sidebar__ui-grid{
         display: flex;
         justify-content: space-between;
+        padding: 5px;
+        border-radius: 5px;
         @include sidebar-ui-title(15px);
         .sidebar__ui-icon{
           display: block;
@@ -113,10 +118,16 @@ $main-font-size:13px;
 
       }
       .sidebar_children{
+        display: none;
         .sidebar__ui-grid{
           @include sidebar-ui-title(25px);
         }
 
+      }
+      .sidebar-active{
+        background-color: $main-color-1;
+        color: white;
+        font-weight: bold;
       }
 
     }
@@ -169,11 +180,13 @@ $main-font-size:13px;
         .content__sidebar-right{
           display: flex;
           margin: 10px;
+
           .content__sidebar-english{
-            margin-right: 10px;
+            margin: 10px;
+
           }
           .notification_bell{
-            margin-right:10px;
+            margin:10px;
             position: relative;
             i.fa-bell{
               font-size: 24px;
@@ -186,7 +199,7 @@ $main-font-size:13px;
             }
           }
           .notification_cart{
-            margin-right:10px;
+            margin:10px;
             position: relative;
             i.fa-shopping-cart{
               font-size: 24px;
@@ -199,21 +212,31 @@ $main-font-size:13px;
           i.fa-search{
 
             font-size: 24px;
-            margin-right:10px;
+            margin:10px;
           }
           .content__sidebar-user{
+            display: flex;
             position: relative;
+            .content__sidebar-user-name{
+              margin: 5px;
+            }
             .content__sidebar-user-image{
-              display: block;
-              background-color: red;
+              width: 32px;
+              height: 32px;
               border-radius: 50%;
-              margin-right: 10px;
+              margin: 5px;
+            }
+            .content__sidebar-user-active{
+              border-radius: 50%;
+              border: 2px $main-color-1 solid;
             }
             .user{
+              display: none;
               position: absolute;
               width: auto;
               padding: 10px;
               right: 10%;
+              top: 50%;
               .user_information{
                 background-color: white;
                 border-radius: 5px;
@@ -225,13 +248,13 @@ $main-font-size:13px;
                   margin: 10px;
                   white-space: nowrap;
                   border-radius: 5px;
+                  &:hover{
+                    background-color: #7c7c7c;
+                    box-sizing: border-box;
+                    color: white;
+                  }
                 }
-                .user_information-list:hover{
-                  background-color: #7c7c7c;
-                  box-sizing: border-box;
-                  color: white;
 
-                }
               }
             }
           }
@@ -276,6 +299,7 @@ $main-font-size:13px;
       }
       .container__process{
         position: relative;
+        margin-bottom: 20px;
         .content__process{
           display: flex;
           justify-content: space-evenly;
@@ -344,7 +368,10 @@ $main-font-size:13px;
         }
       }
 
-
+      .content__txt{
+        margin: 20px;
+        display: none;
+      }
       .content__product{
         display: flex;
         .content__main__product{
@@ -357,13 +384,31 @@ $main-font-size:13px;
             border: 1px $main-color-3 solid;
             box-shadow: 1px 1px 3px 1px #7c7c7c;
             border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+              border:2px $main-color-1 solid;
+            }
+            &:active{
+              transform: scale(0.95);
+            }
             .content__product-image{
               flex: 1;
               margin: 10px;
+              .product-image{
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                transform: scale(1.1);
+              }
+
+              }
             }
             .content__product-description{
               flex: 2;
               margin: 20px 0px;
+              transition: all 0.3s ease;
+              &:hover{
+                transform: scale(1.05);
+              }
               .product-name{
                 font-size: 24px;
               }
@@ -426,6 +471,11 @@ $main-font-size:13px;
                       color: white;
                       background-color: $main-color-1;
                       border-radius: 5px;
+                      transition: all 0.3s ease;
+                      &:active{
+                        color: $main-color-1;
+                        background-color: white;
+                      }
                     }
                   }
                 }
@@ -434,6 +484,10 @@ $main-font-size:13px;
                 }
                 .product-free{
                   margin-bottom: 10px;
+                  transition: all 0.3s ease;
+                  &:hover{
+                    transform: scale(1.05);
+                  }
                 }
                 .product-remove{
                   margin: 0px 10px;
@@ -441,6 +495,10 @@ $main-font-size:13px;
                   border-radius: 5px;
                   padding: 5px 0px;
                   font-weight: bold;
+                  transition: all 0.3s ease;
+                  &:hover{
+                    transform: scale(1.05);
+                  }
                 }
                 .product_action{
                   color: white;
@@ -459,6 +517,10 @@ $main-font-size:13px;
                     flex-basis: 100%;
 
                     @include product-wishlist;
+                    transition: all 0.3s ease;
+                    &:hover{
+                      transform: scale(1.05);
+                    }
                   }
                   .product-wishlist-head{
                     @include product-wishlist;
@@ -468,6 +530,10 @@ $main-font-size:13px;
                     font-size: 10px;
                     margin-right: 0px;
                     align-self: flex-start;
+                    transition: all 0.3s ease;
+                    &:hover{
+                      transform: scale(1.05);
+                    }
 
                   }
                   .product-add-cart{
@@ -479,6 +545,10 @@ $main-font-size:13px;
                     flex-basis: 50%;
                     margin-left: 0px;
                     align-self: flex-start;
+                    transition: all 0.3s ease;
+                    &:hover{
+                      transform: scale(1.05);
+                    }
                   }
                 }
               }
