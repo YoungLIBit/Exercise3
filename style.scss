@@ -43,6 +43,7 @@ $main-font-size:13px;
       @mixin sidebar-title{
         width: 100%;
         text-align: center;
+        color: #545454;
       }
 
       .sidebar__dashboard{
@@ -56,7 +57,7 @@ $main-font-size:13px;
         }
       }
       .sidebar__dashboard:active{
-        background-color: $main-color-1;
+        background-color: #cbcbcb;
       }
       .sidebar__analyst{
         @include sidebar;
@@ -87,6 +88,7 @@ $main-font-size:13px;
       @mixin sidebar-title{
         margin-left: 5px;
         margin-top: 10px;
+        color: #7c7c7c;
       }
       .sidebar__title{
         @include sidebar-title;
@@ -94,6 +96,7 @@ $main-font-size:13px;
       }
       @mixin sidebar-ui-title($m){
         margin: $m;
+        color: #7c7c7c;
       }
       .sidebar__ui-down{
         display: flex;
@@ -127,6 +130,10 @@ $main-font-size:13px;
       .sidebar-active{
         background-color: $main-color-1;
         color: white;
+        font-weight: bold;
+      }
+      .sidebar-active-dashboard{
+        background-color: #cbcbcb;
         font-weight: bold;
       }
 
@@ -270,16 +277,20 @@ $main-font-size:13px;
             font-size: 24px;
             border-right: 1px solid;
             padding-right: 24px;
+            color: #7c7c7c;
 
           }
           i.fa-home{
             margin: 24px 10px;
             text-align: center;
+            color: #7c7c7c;
           }
           .content__checkout-step{
+            color: #7c7c7c;
             margin: 24px 10px;
           }
           .content__checkout-ecommerce{
+            color: #7c7c7c;
             margin: 24px 10px;
           }
           .content__checkout-checkout{
@@ -289,6 +300,7 @@ $main-font-size:13px;
         }
         .content__setting{
           i{
+            margin-top: 20px;
             margin-right: 20px;
             padding: 5px;
             color: white;
@@ -355,16 +367,20 @@ $main-font-size:13px;
           left: 20px;
           transform: translateY(-50%);
           background-color: $color;
+
         }
 
         .content__process::after{
           @include content__process(24%,$main-color-1);
+          transition: all 0.5s cubic-bezier(0.1,0.5,0.5,0.5);
         }
-        .content__process.active2::before{
+        .content__process.active2::after{
           @include  content__process(50%, $main-color-1);
+          transition: all 0.5s cubic-bezier(0.1,0.5,0.5,0.5);
         }
-        .content__process.active3::before{
+        .content__process.active3::after{
           @include content__process(75%,$main-color-1);
+          transition: all 0.4s cubic-bezier(0.5,0.5,0.5,0.5);
         }
       }
 
@@ -374,6 +390,7 @@ $main-font-size:13px;
       }
       .content__product{
         display: flex;
+
         .content__main__product{
           flex: 3;
           margin-left: 20px;
@@ -395,16 +412,24 @@ $main-font-size:13px;
               flex: 1;
               margin: 10px;
               .product-image{
+                width: 90%;
+                height: 90%;
+                object-fit: contain;
                 transition: all 0.3s ease-in-out;
-                &:hover{
+                &:hover {
+
                 transform: scale(1.1);
+
               }
 
               }
+
             }
+
             .content__product-description{
               flex: 2;
               margin: 20px 0px;
+
               transition: all 0.3s ease;
               &:hover{
                 transform: scale(1.05);
@@ -565,6 +590,7 @@ $main-font-size:13px;
           max-height: fit-content;
           align-self: flex-start;
 
+
           .content__cart-list{
             margin: 15px;
             .content__cart-option{
@@ -587,6 +613,7 @@ $main-font-size:13px;
             .content__cart-price-detail{
               font-size: 15px;
               margin-top: 5px;
+
 
               .content__cart-price-details{
                 display: flex;
@@ -621,6 +648,10 @@ $main-font-size:13px;
               padding: 10px 0;
               color: white;
               margin-bottom: 10px;
+              transition: all 0.3s ease;
+              &:active{
+                transform: scale(0.95);
+              }
             }
           }
         }

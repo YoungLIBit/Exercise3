@@ -30,10 +30,26 @@ $(document).ready(function (){
         $('.content__txt').hide();
     })
 });
+$(function (){
+    $('.sidebar__dashboard').addClass('sidebar-active-dashboard');
+    $('.sidebar__dashboard-arrow').css('transform','rotate(90deg');
+    $('.sidebar__dashboard').click(function (){
+        $(this).toggleClass('sidebar-active-dashboard');
+        if($(this).hasClass('sidebar-active-dashboard')){
+            $('.sidebar__dashboard-arrow').css('transform','rotate(90deg');
 
+            $('.sidebar__analyst, .sidebar__ecommerce, .sidebar__title,.sidebar__ui-grid, .sidebar__ui-down').show();
+        }else{
+            $('.sidebar__dashboard-arrow').css('transform','rotate(0deg');
+
+            $('.sidebar__analyst, .sidebar__ecommerce, .sidebar__title,.sidebar__ui-grid, .sidebar__ui-down').hide();
+        }
+    });
+});
 $(document).ready(function(){
     var preClickElement = null;
-    var sidebarList = [$('.sidebar__dashboard'),$('.sidebar__analyst'),$('.sidebar__ecommerce') ];
+
+    var sidebarList = [$('.sidebar__analyst'),$('.sidebar__ecommerce') ];
     $.each(sidebarList,function (){
         $(this).click(function (){
             if(preClickElement !== null){
@@ -90,4 +106,47 @@ $(function (){
     })
 
 
+});
+
+$(function (){
+    $('.content__product-image .product-image').hover(function (){
+        $(this).siblings('.content__product-description').css('margin-left','10px');
+    },function (){
+        $(this).siblings('.content__product-description').css('margin-left', '0');
+    });
+});
+
+$(function(){
+
+        $('.product-quantity-decrease').click(function(){
+            var parent = $(this).closest('.product-quantity-id');
+            var quantityCurrent = parseInt(parent.find('.product-quantity-number').text());
+            if(quantityCurrent > 0){
+                var newQuantity = quantityCurrent - 1;
+                parent.find('.product-quantity-number').text(newQuantity);
+            }
+        });
+        $('.product-quantity-increase').click(function(){
+           var parent = $(this).closest('.product-quantity-id');
+           var quantityCurrent = parseInt(parent.find('.product-quantity-number').text());
+           var newQuantity = quantityCurrent + 1;
+           parent.find('.product-quantity-number').text(newQuantity);
+        });
+});
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        var elementOffset = $('.content__cart').offset().top;
+
+        if (scrollTop > elementOffset) {
+            $('.content__cart').css({
+                position: 'relative',
+                top: 100% - elementOffset
+            });
+        } else {
+            $('.content__cart').css({
+                position: 'static'
+            });
+        }
+    });
 });

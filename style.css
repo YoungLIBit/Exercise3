@@ -31,9 +31,10 @@
 .row .sidebar .sidebar__main .sidebar__dashboard .sidebar__dashboard-title {
   width: 100%;
   text-align: center;
+  color: #545454;
 }
 .row .sidebar .sidebar__main .sidebar__dashboard:active {
-  background-color: #7E72F2;
+  background-color: #cbcbcb;
 }
 .row .sidebar .sidebar__main .sidebar__analyst {
   display: flex;
@@ -45,6 +46,7 @@
 .row .sidebar .sidebar__main .sidebar__analyst .sidebar__analyst-title {
   width: 100%;
   text-align: center;
+  color: #545454;
 }
 .row .sidebar .sidebar__main .sidebar__analyst:active {
   background-color: #7E72F2;
@@ -59,6 +61,7 @@
 .row .sidebar .sidebar__main .sidebar__ecommerce .sidebar__ecommerce-title {
   width: 100%;
   text-align: center;
+  color: #545454;
 }
 .row .sidebar .sidebar__main .sidebar__ecommerce:active {
   background-color: #7E72F2;
@@ -66,11 +69,13 @@
 .row .sidebar .sidebar__main .sidebar__title {
   margin-left: 5px;
   margin-top: 10px;
+  color: #7c7c7c;
 }
 .row .sidebar .sidebar__main .sidebar__ui-down {
   display: flex;
   justify-content: space-between;
   margin: 15px;
+  color: #7c7c7c;
   white-space: nowrap;
   padding: 5px;
   border-radius: 5px;
@@ -81,6 +86,7 @@
   padding: 5px;
   border-radius: 5px;
   margin: 15px;
+  color: #7c7c7c;
 }
 .row .sidebar .sidebar__main .sidebar__ui-grid .sidebar__ui-icon {
   display: block;
@@ -93,10 +99,15 @@
 }
 .row .sidebar .sidebar__main .sidebar_children .sidebar__ui-grid {
   margin: 25px;
+  color: #7c7c7c;
 }
 .row .sidebar .sidebar__main .sidebar-active {
   background-color: #7E72F2;
   color: white;
+  font-weight: bold;
+}
+.row .sidebar .sidebar__main .sidebar-active-dashboard {
+  background-color: #cbcbcb;
   font-weight: bold;
 }
 .row .notification {
@@ -234,21 +245,26 @@
   font-size: 24px;
   border-right: 1px solid;
   padding-right: 24px;
+  color: #7c7c7c;
 }
 .row .content .container .content__checkout .content__checkout__left i.fa-home {
   margin: 24px 10px;
   text-align: center;
+  color: #7c7c7c;
 }
 .row .content .container .content__checkout .content__checkout__left .content__checkout-step {
+  color: #7c7c7c;
   margin: 24px 10px;
 }
 .row .content .container .content__checkout .content__checkout__left .content__checkout-ecommerce {
+  color: #7c7c7c;
   margin: 24px 10px;
 }
 .row .content .container .content__checkout .content__checkout__left .content__checkout-checkout {
   margin: 24px 10px;
 }
 .row .content .container .content__checkout .content__setting i {
+  margin-top: 20px;
   margin-right: 20px;
   padding: 5px;
   color: white;
@@ -301,8 +317,9 @@
   left: 20px;
   transform: translateY(-50%);
   background-color: #7E72F2;
+  transition: all 0.5s cubic-bezier(0.1, 0.5, 0.5, 0.5);
 }
-.row .content .container .container__process .content__process.active2::before {
+.row .content .container .container__process .content__process.active2::after {
   content: "";
   position: absolute;
   display: block;
@@ -312,8 +329,9 @@
   left: 20px;
   transform: translateY(-50%);
   background-color: #7E72F2;
+  transition: all 0.5s cubic-bezier(0.1, 0.5, 0.5, 0.5);
 }
-.row .content .container .container__process .content__process.active3::before {
+.row .content .container .container__process .content__process.active3::after {
   content: "";
   position: absolute;
   display: block;
@@ -323,6 +341,7 @@
   left: 20px;
   transform: translateY(-50%);
   background-color: #7E72F2;
+  transition: all 0.4s cubic-bezier(0.5, 0.5, 0.5, 0.5);
 }
 .row .content .container .content__txt {
   margin: 20px;
@@ -355,6 +374,9 @@
   margin: 10px;
 }
 .row .content .container .content__product .content__main__product .content__product-detail .content__product-image .product-image {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
   transition: all 0.3s ease-in-out;
 }
 .row .content .container .content__product .content__main__product .content__product-detail .content__product-image .product-image:hover {
@@ -566,6 +588,10 @@
   padding: 10px 0;
   color: white;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+.row .content .container .content__product .content__cart .content__cart-list .content__cart-order:active {
+  transform: scale(0.95);
 }
 
 /*# sourceMappingURL=style.css.map */
